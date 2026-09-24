@@ -1,14 +1,15 @@
 pub fn build_lps(pattern: &str) -> Vec<usize> {
     let pattern = pattern.as_bytes();
     /*
-    pattern.as_bytes returns &[u8] UTF-8
+    pattern.as_bytes returns reference  &[u8] UTF-8
     Example : pattern = "ABABAC$"
     bytes > [65,66,65,66,65,67,36]
+
     pattern &str > pattern &[u8] 
     */
     let m = pattern.len(); //m type usize
     
-    let mut lps = vec![0usize; m]; // lps = [0..m]
+    let mut lps = vec![0usize; m]; //  m positions initialized to 0
 
     let mut len: usize = 0; //len border
     let mut   i: usize = 1; // index pattern
