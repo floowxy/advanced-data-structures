@@ -1,3 +1,4 @@
+use crate::build_lps::build_lps;
 pub fn kmp_search(text : &str , pattern :&str) -> Vec<usize>{
     if pattern.is_empty() {
     return Vec::new();
