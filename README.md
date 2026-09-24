@@ -1,23 +1,72 @@
-# Advanced Data Structures
+# Pattern Matching
 
-Repository for the Advanced Data Structures course.
+Implementation of pattern matching algorithms for the Advanced Data Structures course.
 
-This repository contains implementations, experiments, and exercises related to advanced data structures and algorithms.
+## KMP Algorithm
 
-## Branches
+This branch contains an implementation of the Knuth-Morris-Pratt (KMP) string matching algorithm in Rust.
 
-Each topic is developed in its own branch.
+KMP searches for occurrences of a pattern inside a text using the LPS (Longest Proper Prefix which is also a Suffix) array to avoid unnecessary comparisons.
 
-Examples:
+## Project Structure
 
-- `G4-HYPERLOGLOG` — HyperLogLog
-- `PatternMatching` — Pattern Matching algorithms
+```text
+src/
+├── main.rs
+├── kmp_search.rs
+└── build_lps.rs
+```
 
-## Technologies
+- `main.rs` — program entry point.
+- `kmp_search.rs` — KMP search algorithm.
+- `build_lps.rs` — construction of the LPS array.
 
-Implementations may use different programming languages depending on the topic, including:
+## How to Run
 
-- C++
+Make sure Rust and Cargo are installed.
+
+Clone the repository and switch to the `PatternMatching` branch:
+
+```bash
+git clone https://github.com/floowxy/advanced-data-structures.git
+cd advanced-data-structures
+git switch PatternMatching
+```
+
+Enter the Rust project:
+
+```bash
+cd PatternMatching
+```
+
+Run the program:
+
+```bash
+cargo run
+```
+
+Example output:
+
+```text
+Text: ABABABAC
+Pattern: ABABAC
+Matches: [2]
+```
+
+## Technology
+
+- Rust
+
+## Complexity
+
+- LPS construction: `O(len_pattern)`
+- KMP search: `O(len_text)`
+- Total complexity: `O(len_text + len_pattern)`
+
+Where:
+
+- `len_text` is the length of the text.
+- `len_pattern` is the length of the pattern.
 
 ## Author
 
