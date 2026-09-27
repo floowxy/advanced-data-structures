@@ -11,13 +11,15 @@ Each topic is developed in its own branch.
 Examples:
 
 - `G4-HYPERLOGLOG` — HyperLogLog
-- `PatternMatching` — Pattern Matching algorithms
+- `PatternMatching` — KMP Pattern Matching
+- `BruteForce` — Brute Force Pattern Matching
 
 ## Technologies
 
 Implementations may use different programming languages depending on the topic, including:
 
 - C++
+- Rust
 
 ## Author
 
