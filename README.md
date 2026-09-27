@@ -13,7 +13,6 @@ Examples:
 - `G4-HYPERLOGLOG` — HyperLogLog
 - `PatternMatching` — KMP Pattern Matching
 - `BruteForce` — Brute Force Pattern Matching
-- `Hashing` — Hash Table with Separate Chaining
 
 ## Technologies
 
@@ -21,19 +20,6 @@ Implementations may use different programming languages depending on the topic, 
 
 - C++
 - Rust
-
-## Hashing
-
-The `Hashing` branch contains a simple Hash Table implementation in Rust.
-
-It includes:
-
-- Hash function
-- Insert
-- Search
-- Delete
-- Collision handling using separate chaining
-- Linked List for collision resolution
 
 ## Author
 
