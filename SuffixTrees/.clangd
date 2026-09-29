@@ -1,0 +1,8 @@
+CompileFlags:
+  Add:
+    - -std=c++17
+    - -IINCLUDE
+    - -I../INCLUDE
+    - -Wall
+    - -Wextra
+    - -pedantic
