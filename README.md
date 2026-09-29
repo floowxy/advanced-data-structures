@@ -1,79 +1,70 @@
-# Advanced Data Structures
+# Suffix Trees (C++)
 
-Repository for the Advanced Data Structures course.
+Implementación de Suffix Trees usando el algoritmo de Ukkonen en tiempo lineal $O(n)$ y Suffix Array con cálculo del arreglo LCP mediante el algoritmo de Kasai y búsqueda binaria.
 
-This repository contains implementations, experiments, and exercises related to advanced data structures and algorithms.
+## Trabajo Grupal / Presenters
+- **Gonzales Hernandez, Alexis Orlando**
+- **Salazar Zapata, Alvaro Matias**
+- **Sotelo Atuncar, Diego Alejandro**
+- **Villavicencio Merella, Paolo Alonso**
 
-## Branches
+---
 
-Each topic is developed in its own branch.
+## Estructura del Proyecto
 
-- `G4-HYPERLOGLOG` — HyperLogLog algorithm.
-- `PatternMatching` — Knuth-Morris-Pratt (KMP) pattern matching algorithm.
-- `BruteForce` — Brute Force pattern matching algorithm.
-- `Hashing` — Hash Table with collision handling using Separate Chaining.
+```text
+SuffixTrees/
+├── APPS/
+│   └── main.cpp          # Punto de entrada principal
+├── INCLUDE/
+│   ├── Aplicacion.h      # Declaración de la interfaz CLI
+│   ├── SuffixArray.h     # Declaración del Suffix Array y LCP
+│   └── SuffixTree.h      # Declaración del Suffix Tree y nodo
+├── SRC/
+│   ├── Aplicacion.cpp    # Flujo interactivo y resumen de complejidades
+│   ├── SuffixArray.cpp   # Construcción de Suffix Array, Kasai (LCP) y búsqueda
+│   ├── SuffixTree.cpp    # Búsqueda, visualización y LCS en Suffix Tree
+│   └── Ukkonen.cpp       # Construcción lineal O(n) con el algoritmo de Ukkonen
+└── makefile              # Script de compilación y ejecución
+```
 
-## Implementations
+## Compilación y Ejecución
 
-### Pattern Matching
-
-The `PatternMatching` branch contains an implementation of the Knuth-Morris-Pratt (KMP) algorithm in Rust.
-
-KMP uses the LPS (Longest Proper Prefix which is also a Suffix) array to avoid unnecessary comparisons.
-
-Complexity:
-
-- LPS construction: `O(len_pattern)`
-- Search: `O(len_text)`
-- Total: `O(len_text + len_pattern)`
-
-### Brute Force
-
-The `BruteForce` branch contains a simple pattern matching implementation in Rust.
-
-The algorithm compares the pattern from every possible position in the text.
-
-Complexity:
-
-- Worst case: `O(len_text * len_pattern)`
-- Auxiliary space: `O(1)`
-
-### Hashing
-
-The `Hashing` branch contains a Hash Table implementation in Rust.
-
-It includes:
-
-- Hash function
-- Insertion
-- Search
-- Deletion
-- Collision handling using Separate Chaining
-- Linked List for collision resolution
-
-Average complexity:
-
-- Insert: `O(1)`
-- Search: `O(1)`
-- Delete: `O(1)`
-
-Worst case with many collisions:
-
-- `O(n)`
-
-### HyperLogLog
-
-The `G4-HYPERLOGLOG` branch contains an implementation of the HyperLogLog probabilistic algorithm for cardinality estimation.
-
-## Technologies
-
-- Rust
-- C++
-
-## How to Use
-
-Clone the repository:
-
+Para compilar el proyecto:
 ```bash
-git clone https://github.com/floowxy/advanced-data-structures.git
-cd advanced-data-structures
+cd SuffixTrees
+make
+```
+
+Para compilar y ejecutar directamente la aplicación interactiva:
+```bash
+cd SuffixTrees
+make run
+```
+
+Para limpiar los binarios compilados:
+```bash
+cd SuffixTrees
+make clean
+```
+
+## Funcionalidades Implementadas
+
+1. **Construcción con Ukkonen**: Construcción del árbol de sufijos en tiempo lineal $O(n)$ para alfabetos acotados, empleando punteros implícitos, enlaces de sufijo y las tres reglas canónicas de extensión.
+2. **Búsqueda de Patrones**: Localización de todas las ocurrencias de un patrón en el texto en tiempo $O(m + k)$.
+3. **Subcadena Común Más Larga (LCS)**: Búsqueda de la subcadena común más larga entre dos cadenas en $O(n_1 + n_2)$ mediante el árbol de sufijos generalizado.
+4. **Suffix Array y LCP**: Generación del arreglo de sufijos y cálculo del arreglo LCP en tiempo $O(n)$ utilizando el algoritmo de Kasai.
+5. **Búsqueda Binaria en Suffix Array**: Búsqueda en tiempo $O(m \log n + k)$.
+
+## Resumen de Complejidades
+
+| Estructura / Operación | Complejidad Temporal | Espacio Auxiliar |
+| :--- | :--- | :--- |
+| **Suffix Tree (Construcción con Ukkonen)** | $O(n)$ | $O(n)$ |
+| **Búsqueda en Suffix Tree** | $O(m + k)$ | $O(1)$ |
+| **Longest Common Substring (LCS)** | $O(n_1 + n_2)$ | $O(n_1 + n_2)$ |
+| **Suffix Array (Espacio)** | — | $O(n)$ |
+| **LCP (Algoritmo de Kasai)** | $O(n)$ | $O(n)$ |
+| **Búsqueda en Suffix Array** | $O(m \log n + k)$ | $O(1)$ |
+
+*Donde $n$ es la longitud del texto, $m$ la longitud del patrón y $k$ la cantidad de ocurrencias.*
